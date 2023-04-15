@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<section>
+		<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Columns with icons</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
+        </div>
+        <h3 class="fs-2">Search Criteria</h3>
+        <p>Please specify you search string below:</p>
+          <div class="container-fluid">
+              <form class="d-flex" role="search" method="post">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_string">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+          </div>
+
+      </div>
+      <div class="feature col">
+
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+        </div>
+        <h3 class="fs-2">Search String</h3>
+        <p>DBs in AWS: {% if dbs %}
+            <ul class="list-group">
+            {% for db in dbs %}
+                <li class="list-group-item">{{ db.type }} {{ db.tier}} Price:{{ db.price }}</li>
+            {% endfor %}
+            </ul>
+
+            {% endif %}</p>
+
+      </div>
+    </div>
+  </div>
+	</section>
+{% endblock %}
